@@ -1,0 +1,24 @@
+
+Here’s what’s set up and how to use it.
+
+**Created: `AGENTS.md`** in the project root. It’s a **master prompt** that describes:
+
+- **What the project is** – DealHub AI, deal workspace, AI analysis, Drive.
+- **Tech stack** – Next.js 14, Supabase (no server client caching), Tailwind, OpenAI, Drive OAuth.
+- **Conventions** – RLS, migrations (idempotent, no leading comments), deal codes, changelog, status values, where logic vs UI lives.
+- **How to change things** – migrations, errors, performance, docs.
+- **Quick reference** – where auth, deals, analysis, Drive, changelog, and migrations live.
+
+**How to use it with the agent**
+
+1. **Cursor**  
+   - Refer to it: e.g. “Follow the conventions in AGENTS.md” or “Use AGENTS.md as context.”  
+   - Or add a Cursor rule that says: “When working in this repo, read and follow `AGENTS.md` for project context and conventions.”
+
+2. **Copy‑paste**  
+   - At the start of a new chat or task, paste: “Use the project context in AGENTS.md at the repo root” (and open/attach `AGENTS.md` if the tool supports it).
+
+3. **Other tools**  
+   - Point the agent at the repo and tell it to use `AGENTS.md` as the main project and convention guide.
+
+I can also add a short `.cursor/rules` rule that tells Cursor to always use `AGENTS.md` in this repo if you want that.

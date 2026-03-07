@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 96%;
+    --foreground: 222 47% 11%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+    --primary: 173 80% 32%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --ring: 173 80% 32%;
+    --input: 214 32% 91%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.page-shell {
+  @apply min-h-screen flex flex-col;
+}
+
+.page-main {
+  @apply flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 md:py-10;
+}
+
+.page-header {
+  @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8;
+}
+
+.card {
+  @apply bg-card text-card-foreground rounded-2xl border border-border shadow-soft;
+}
+
+.card-header {
+  @apply px-5 py-4 border-b border-border/60 flex items-center justify-between gap-3;
+}
+
+.card-title {
+  @apply text-xs font-semibold tracking-wider uppercase text-muted-foreground;
+}
+
+.card-body {
+  @apply p-5;
+}
+
+.grid-section {
+  @apply grid gap-5 md:gap-6;
+}
+
+@media (min-width: 768px) {
+  .grid-two {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+}
+
+/* Score badge colors */
+.score-strong {
+  @apply bg-emerald-500/15 text-emerald-800 dark:text-emerald-200;
+}
+.score-caution {
+  @apply bg-amber-500/15 text-amber-800 dark:text-amber-200;
+}
+.score-weak {
+  @apply bg-orange-500/15 text-orange-800 dark:text-orange-200;
+}
+.score-pass {
+  @apply bg-muted text-muted-foreground;
+}
+
+/* Fallback plain CSS so the app still looks modern
+   even if Tailwind utilities are not being applied. */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #f5f5f7;
+  color: #111827;
+}
+
+a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.page-main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .page-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 16px;
+  background: #4f46e5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+input,
+textarea {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 8px 10px;
+}
+
